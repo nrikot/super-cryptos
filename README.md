@@ -10,7 +10,7 @@ The interesting part is the ledger: decimal.js money math, weighted-average entr
 
 ### What It Is
 
-SUPER-CRYPTOS is a **paper-trading dashboard** developed by N Riko Trihendrawan - it shows you live cryptocurrency prices from real exchanges (either Binance or Coinbase), lets you place simulated trades with fake money paper and tracks your portfolio performance over time.
+[SUPER-CRYPTOS](https://supercryptos-nine.vercel.app/) is a **paper-trading dashboard** developed by N Riko Trihendrawan - it shows you live cryptocurrency prices from real exchanges (either Binance or Coinbase), lets you place simulated trades with fake money paper and tracks your portfolio performance over time.
 
 No real money is involved. No real exchange accounts. It's a simulator that uses real market data.
 
