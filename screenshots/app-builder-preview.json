@@ -1,0 +1,35 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "SUPER-CRYPTOS",
+      "hasCanvas": false,
+      "bodyTextLen": 1337,
+      "bodyTextHash": "25b30c19a79ff394a025c685c00c2c7cf35c30909b8825d936d3c0297a087988",
+      "bodyTextPrefix": "SUPER-CRYPTOS ® PAPER TRADING EQUITY $10,000.00 CASH $10,000.00 ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "C:\\WinNMP\\WWW\\CRYPTOZ_CryptoMarket\\CODE\\screenshots\\app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "SUPER-CRYPTOS",
+      "hasCanvas": false,
+      "bodyTextLen": 1324,
+      "bodyTextHash": "7e90fa75c85e7d588dc3bfe3acd6c8f4a2f54be3cf0c8c522add9bf73fc99d1c",
+      "bodyTextPrefix": "SUPER-CRYPTOS ® PAPER TRADING Polling EQUITY $10,000.00 CASH $10",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "C:\\WinNMP\\WWW\\CRYPTOZ_CryptoMarket\\CODE\\screenshots\\app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "verdictFile": "C:\\WinNMP\\WWW\\CRYPTOZ_CryptoMarket\\CODE\\screenshots\\app-builder-preview.json"
+}

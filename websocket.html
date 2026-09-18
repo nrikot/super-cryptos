@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binance WebSocket Tracker</title>
+</head>
+<body style="font-family: sans-serif; padding: 20px;">
+    <h2>Live Binance BTC Data Stream</h2>
+    <div id="output" style="white-space: pre-wrap; font-family: monospace; background: #222; color: #0f0; padding: 15px; border-radius: 5px; min-height: 200px;">Connecting...</div>
+
+    <script>
+        // Using the global endpoint with standard port 9443
+        const ws = new WebSocket("wss://stream.binance.com:9443/stream");
+
+        ws.onopen = () => {
+            document.getElementById("output").innerText = "Connected! Sending subscription request...\n";
+            
+            const subscribeMsg = {
+                method: "SUBSCRIBE",
+                params: ["btcusdt@ticker"],
+                id: 1
+            };
+            ws.send(JSON.stringify(subscribeMsg));
+        };
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            // Ignore the initial subscription confirmation message wrapper
+            if (data.result === null) {
+                document.getElementById("output").innerText = "Subscription active. Awaiting data ticker...";
+                return;
+            }
+            document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+        };
+
+        ws.onerror = (err) => { 
+            document.getElementById("output").innerText = "Error: Check browser console (F12) for details."; 
+        };
+        
+        ws.onclose = (event) => { 
+            document.getElementById("output").innerText = `Connection closed. (Code: ${event.code})`; 
+        };
+    </script>
+</body>
+</html>

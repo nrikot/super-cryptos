@@ -1,0 +1,17 @@
+{
+  "name": "SUPER-CRYPTOS",
+  "short_name": "SCRYPTOS",
+  "description": "Paper-trade crypto with live market data, real ledger and no float drift.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090b",
+  "theme_color": "#08090b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
