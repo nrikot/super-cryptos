@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-background: #08090b;
+  --color-foreground: #e8eaee;
+  --color-card: #111318;
+  --color-card-foreground: #e8eaee;
+  --color-popover: #15181e;
+  --color-popover-foreground: #e8eaee;
+  --color-primary: #c5ccd8;
+  --color-primary-foreground: #08090b;
+  --color-secondary: #181b22;
+  --color-secondary-foreground: #e8eaee;
+  --color-muted: #181b22;
+  --color-muted-foreground: #8b919c;
+  --color-accent: #c5ccd8;
+  --color-accent-foreground: #08090b;
+  --color-destructive: #f07167;
+  --color-destructive-foreground: #2a0c0a;
+  --color-border: #232730;
+  --color-input: #232730;
+  --color-ring: #c5ccd8;
+  --color-buy: #3ecf8e;
+  --color-buy-foreground: #062016;
+  --color-sell: #f07167;
+  --color-sell-foreground: #2a0c0a;
+  --color-subtle: #5c6370;
+  --color-chart-grid: #1a1d24;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+
+  --shadow-border: 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-border-hover: 0 0 0 1px rgb(255 255 255 / 0.14);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.light {
+    color-scheme: light;
+    --color-background: #f8f9fa;
+    --color-foreground: #111318;
+    --color-card: #ffffff;
+    --color-card-foreground: #111318;
+    --color-popover: #ffffff;
+    --color-popover-foreground: #111318;
+    --color-primary: #374151;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #f1f3f5;
+    --color-secondary-foreground: #111318;
+    --color-muted: #f1f3f5;
+    --color-muted-foreground: #6b7280;
+    --color-accent: #374151;
+    --color-accent-foreground: #ffffff;
+    --color-destructive: #dc2626;
+    --color-destructive-foreground: #ffffff;
+    --color-border: #e5e7eb;
+    --color-input: #e5e7eb;
+    --color-ring: #6b7280;
+    --color-buy: #059669;
+    --color-buy-foreground: #ffffff;
+    --color-sell: #dc2626;
+    --color-sell-foreground: #ffffff;
+    --color-subtle: #9ca3af;
+    --color-chart-grid: #e5e7eb;
+    --shadow-border: 0 0 0 1px rgb(0 0 0 / 0.08);
+    --shadow-border-hover: 0 0 0 1px rgb(0 0 0 / 0.14);
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .pressable {
+    transition: scale 150ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  .pressable:active:not(:disabled) {
+    scale: 0.96;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+@keyframes flash-up {
+  from {
+    background-color: color-mix(in oklab, var(--color-buy) 18%, transparent);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-down {
+  from {
+    background-color: color-mix(in oklab, var(--color-sell) 18%, transparent);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+.flash-up {
+  animation: flash-up 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flash-down {
+  animation: flash-down 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.ws-live {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-up,
+  .flash-down,
+  .ws-live,
+  .pressable {
+    animation: none;
+    transition: none;
+  }
+}
+
+.spark-up { stroke: var(--color-buy); }
+.spark-down { stroke: var(--color-sell); }
